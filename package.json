@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/nodis-com-br/frontend-challenges.git",
+  "private": true,
+  "workspaces": {
+      "packages": [
+          "packages/*"
+      ]
+  },
   "contributors": [
     "Thiago Oliveira <thiago.oliveira@nodis.com.br>",
     "Yuri Azevedo <yuri.azevedo@nodis.com.br>"
