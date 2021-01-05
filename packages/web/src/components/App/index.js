@@ -1,11 +1,12 @@
 import GlobalStyle from '../../styles/global';
+import { Container } from './styles';
 
 function App({ children }) {
     return (
-        <div>
+        <Container>
             <GlobalStyle/>
             { children }
-        </div>
+        </Container>
     );
 }
 
