@@ -11,9 +11,9 @@ function ProductPreviewCard({ product }) {
 
                 {product?.promotionalPrice 
                     ?
-                        <Price> 1 x <OldPrice as="span">R$ {product?.salePrice} </OldPrice> por R$ {product?.promotionalPrice} </Price>
+                        <Price> 1 x <OldPrice as="span">{product?.salePrice} </OldPrice> por {product?.promotionalPrice} </Price>
                     :
-                        <Price>1 x R$ {product?.salePrice}</Price>
+                        <Price>1 x {product?.salePrice}</Price>
                 }
             </div>
         </Container>

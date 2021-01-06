@@ -6,3 +6,8 @@ export const Text = styled.p`
     line-height: 20px;
     color: ${colors.primary};
 `;
+
+export const Title = styled(Text)`
+    font-size: 21px;
+    line-height: 24px;
+`;

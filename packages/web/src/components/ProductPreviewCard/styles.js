@@ -4,10 +4,9 @@ import { Text } from '../../styles/placeholders';
 
 export const Container = styled.div`
     display: flex;
-    width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #DFE3E8;
+    height: 100%;
 `;
 
 export const Img = styled.img`
