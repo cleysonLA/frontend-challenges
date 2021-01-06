@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { useQuery, gql } from "@apollo/client";
+import { useState, useRef, useEffect } from 'react';
+import { useLazyQuery, gql } from "@apollo/client";
 import ProductPreviewCard from '../../components/ProductPreviewCard';
 import { Link } from 'react-router-dom';
 import { ProductsContainer, HomeTitle } from './styles';
  
-const GET_ALL_PRODUCTS = gql`
-    query {
-        allSkus {
+const GET_PRODUCTS = gql`
+    query ($page: Int, $perPage: Int) {
+        allSkus(page: $page, perPage: $perPage) {
             id
             name
             imageUrl
@@ -18,8 +18,11 @@ const GET_ALL_PRODUCTS = gql`
 
 function Home() {
     const [products, setProducts] = useState([]);
+    const [page, setPage] = useState(-1);
 
-    const { loading } = useQuery(GET_ALL_PRODUCTS, {
+    const loader = useRef(null);
+
+    const [getProductsPerPage, { loading }] = useLazyQuery(GET_PRODUCTS, {
         onCompleted: (data) => {
             const { allSkus } = data;
 
@@ -34,8 +37,8 @@ function Home() {
         }).format(price);
     }
 
-    function handleProducts(products) {
-        const productsFormatted = products.reduce((productsReduced, product) => {
+    function handleProducts(productsPerPage) {
+        const productsFormatted = productsPerPage.reduce((productsReduced, product) => {
             const { salePrice, promotionalPrice } = product;
 
             productsReduced.push({
@@ -47,8 +50,38 @@ function Home() {
             return productsReduced;
         }, []);
 
-        setProducts(productsFormatted);
+        setProducts([...products, ...productsFormatted]);
     }
+
+    const handleObserver = (entities) => {
+        const target = entities[0];
+        if (target.isIntersecting) {   
+            setPage((page) => page + 1)
+        }
+    }
+
+    useEffect(() => {
+        var options = {
+           root: null,
+           rootMargin: "20px",
+           threshold: 1.0
+        };
+       
+        const observer = new IntersectionObserver(handleObserver, options);
+
+        if (loader.current) {
+           observer.observe(loader.current)
+        }
+   }, []);
+
+    useEffect(() => {
+        getProductsPerPage({
+            variables: {
+                page,
+                perPage: 10,
+            },
+        })
+    }, [getProductsPerPage, page])
 
     return (
         <div>
@@ -63,6 +96,8 @@ function Home() {
                     ))
                 }
             </ProductsContainer>
+
+            <div ref={loader} />
         </div>
     );
 }
