@@ -1,21 +1,33 @@
 # Desafio Nodis - Frontend
 
-## Instruções Gerais
+## Projeto
 
-Faça um fork deste repositório no Github, desenvolva seu código nele e ao final nos envie a URL para que possamos avaliar o resultado do desafio. Utilize o README para nos passar quaisquer informações que julgar interessante/necessárias como rodar o projeto, decisões tomadas, etc.
+O projeto consiste em duas telas: uma de todos os produtos e outra para os detalhes do produto.
 
-Não definimos um tempo para o desafio ser feito, **é você quem deve nos passar uma data limite para a entrega do desafio**.
+## Tecnologias usadas
 
-## Selecione o desafio de acordo com a sua área e nível de senioridade
+- [React](https://pt-br.reactjs.org/)
 
-### Mobile
+- [Graphql](https://www.apollographql.com/docs/react/)
 
-- [Júnior](./docs/challenge-mobile-junior.md)
-- [Pleno](./docs/challenge-mobile-pleno.md)
-- [Sênior](./docs/challenge-mobile-senior.md)
+## Instalação
 
-### Web
+### Banco de Dados
 
-- [Júnior](./docs/challenge-web-junior.md)
-- [Pleno](./docs/challenge-web-pleno.md)
-- [Sênior](./docs/challenge-web-senior.md)
+No root do projeto rode o comando `$ yarn`.
+
+### Projeto Web
+
+Entre na pasta do projeto em `package/web` e rode o comando `$ yarn`.
+
+## Como rodar o projeto
+
+### Banco de Dados
+
+Para subir o banco de dados rode o comando `$ yarn database` no root do projeto.
+
+A API roda por padrão em http://localhost:3000/. Para escolher uma porta diferente, basta rodar o comando `$ yarn database --p <nova porta>`.
+
+### Projeto Web
+
+Entre na pasta do projeto em `package/web` e rode o comando `$ yarn start`.
