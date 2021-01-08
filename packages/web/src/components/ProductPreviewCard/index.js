@@ -1,4 +1,4 @@
-import { Container, Img, Title, Price, OldPrice } from './styles';
+import { Container, Img, ProductTitle, Price, OldPrice } from './styles';
 import ImagePlaceholder from '../../assets/image-placeholder.svg';
 
 function ProductPreviewCard({ product }) {
@@ -7,7 +7,7 @@ function ProductPreviewCard({ product }) {
             <Img src={product?.imageUrl || ImagePlaceholder} alt={product?.name} />
 
             <div>
-                <Title as="h2">{product?.name}</Title>
+                <ProductTitle as="h2">{product?.name}</ProductTitle>
 
                 {product?.promotionalPrice 
                     ?

@@ -7,11 +7,11 @@ import { ProductsContainer, HomeTitle } from './styles';
 const GET_PRODUCTS = gql`
     query ($page: Int, $perPage: Int) {
         allSkus(page: $page, perPage: $perPage) {
-            id
-            name
-            imageUrl
-            salePrice
-            promotionalPrice
+            id,
+            name,
+            imageUrl,
+            salePrice,
+            promotionalPrice,
         }
     }
 `;

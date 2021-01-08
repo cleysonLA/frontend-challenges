@@ -10,4 +10,9 @@ export const Text = styled.p`
 export const Title = styled(Text)`
     font-size: 21px;
     line-height: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
 `;

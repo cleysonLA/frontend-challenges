@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../styles';
-import { Text } from '../../styles/placeholders';
+import { Text, Title } from '../../styles/placeholders';
 
 export const Container = styled.div`
     display: flex;
@@ -15,13 +15,9 @@ export const Img = styled.img`
     margin-right: 10px;
 `;
 
-export const Title = styled(Text)`
+export const ProductTitle = styled(Title)`
     font-size: 15px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    word-break: break-all;
+    line-height: 20px;
 `;
 
 export const Price = styled(Text)`
