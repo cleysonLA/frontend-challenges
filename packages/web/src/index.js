@@ -12,6 +12,7 @@ import api from './services/api';
 
 import App from './components/App';
 import Home from './pages/Home';
+import Product from './pages/Product';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.render(
             <Router>
                 <Switch>
                     <Route exact path="/" component={Home} />
+                    <Route path="/product/:productId" component={Product} />
                 </Switch>
             </Router>
         </App>
